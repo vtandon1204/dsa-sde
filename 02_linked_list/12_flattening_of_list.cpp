@@ -47,8 +47,11 @@ Node *flatten(Node *root)
     if (!root || !root->next)
         return root;
 
+    // recursively flatten the list:
+    // flatten the next list:
     root->next = flatten(root->next);
-
+    
+    // merge the current list with the next list:
     root = mergeTwoLists(root, root->next);
 
     return root;
